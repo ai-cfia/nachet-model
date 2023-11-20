@@ -55,7 +55,7 @@ def generate_model_metadata(ml_client: MLClient) -> list:
             model_name = match.group(1)  
             model_version = match.group(2)  
         else:
-            print("No match found")
+            raise Exception("No match found.")
 
         # Retrieve the job object from model
         model = ml_client.models.get(name=model_name, version=model_version)
