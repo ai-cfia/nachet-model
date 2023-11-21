@@ -17,19 +17,19 @@ ml_client = MLClient(
     NACHET_SUBSCRIPTION_ID, 
     NACHET_RESOURCE_GROUP, NACHET_WORKSPACE)
 
-def generate_model_metadata(ml_client: MLClient) -> list:
+def generate_model_endpoints_metadata(ml_client) -> list:
     """
-    Retrieves deployed online_endpoints and returns a list of dictionaries containing model metadata 
+    Retrieves deployed online endpoints and returns a list of dictionaries containing their metadata 
     """
 
-    models_metadata = []
+    model_endpoints_metadata = []
 
     # Retrieve all endpoints containing "nachet"
     endpoints = ml_client.online_endpoints.list()
     nachet_endpoints = [endpoint for endpoint in endpoints if 'nachet' in endpoint.name.lower()]
 
     for ep in nachet_endpoints:
-        model_metadata = {
+        model_endpoint_metadata = {
             'endpoint_name': "",
             'model_name': '',
             'created_by': '',
@@ -61,19 +61,19 @@ def generate_model_metadata(ml_client: MLClient) -> list:
         model = ml_client.models.get(name=model_name, version=model_version)
         job = ml_client.jobs.get(name=model.job_name)
 
-        model_metadata['endpoint_name'] = ep.name
-        model_metadata['model_name'] = model_name
-        model_metadata['created_by'] = job.creation_context.created_by
-        model_metadata['creation_date'] = job.creation_context.created_at.strftime("%Y-%m-%d")
-        model_metadata['version'] = model_version
-        model_metadata['description'] = model.description
-        model_metadata['job_name'] = job.display_name
+        model_endpoint_metadata['endpoint_name'] = ep.name
+        model_endpoint_metadata['model_name'] = model_name
+        model_endpoint_metadata['created_by'] = job.creation_context.created_by
+        model_endpoint_metadata['creation_date'] = job.creation_context.created_at.strftime("%Y-%m-%d")
+        model_endpoint_metadata['version'] = model_version
+        model_endpoint_metadata['description'] = model.description
+        model_endpoint_metadata['job_name'] = job.display_name
 
-        models_metadata.append(model_metadata)
+        model_endpoints_metadata.append(model_endpoint_metadata)
 
-    return models_metadata 
+    return model_endpoints_metadata 
         
 if __name__ == "__main__":
-    models_metadata = generate_model_metadata(ml_client)
-    with open("models_metadata.json", "w") as outfile:
-        json.dump(models_metadata, outfile)
+    model_endpoints_metadata = generate_model_endpoints_metadata(ml_client)
+    with open("model_endpoints_metadata.json", "w") as outfile:
+        json.dump(model_endpoints_metadata, outfile)
