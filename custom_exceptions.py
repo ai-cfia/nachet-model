@@ -1,0 +1,2 @@
+class ModelFilePathPatternError(Exception):
+    pass

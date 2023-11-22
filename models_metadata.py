@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 from azure.ai.ml import MLClient, Input
 from azure.ai.ml.entities import Model
 from azure.identity import DefaultAzureCredential
+from custom_exceptions import(
+    ModelFilePathPatternError
+)
 
 load_dotenv()
 
@@ -19,7 +22,8 @@ ml_client = MLClient(
 
 def generate_model_endpoints_metadata(ml_client) -> list:
     """
-    Retrieves deployed online endpoints and returns a list of dictionaries containing their metadata 
+    Retrieves deployed online endpoints and returns a list of dictionaries
+    containing their metadata 
     """
 
     model_endpoints_metadata = []
@@ -55,7 +59,7 @@ def generate_model_endpoints_metadata(ml_client) -> list:
             model_name = match.group(1)  
             model_version = match.group(2)  
         else:
-            raise Exception("No match found.")
+            raise ModelFilePathPatternError("Error retrieving model name or version from filePath.")
 
         # Retrieve the job object from model
         model = ml_client.models.get(name=model_name, version=model_version)
@@ -76,4 +80,4 @@ def generate_model_endpoints_metadata(ml_client) -> list:
 if __name__ == "__main__":
     model_endpoints_metadata = generate_model_endpoints_metadata(ml_client)
     with open("model_endpoints_metadata.json", "w") as outfile:
-        json.dump(model_endpoints_metadata, outfile)
+        json.dump(model_endpoints_metadata, outfile, indent=4)
