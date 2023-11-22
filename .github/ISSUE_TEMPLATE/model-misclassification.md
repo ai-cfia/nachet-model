@@ -18,8 +18,6 @@ Describe what actually happened.
 
 **Supporting Images**
 To better understand the issue, please add screenshots:
-* **Result Screenshot**: Include a screenshot of the interface showing the classification error or the issue as it appears in your environment.
+* **Results**: Include a screenshot of the interface showing the classification error or the issue as it appears in your environment.
 * **Source Image**: Attach the actual picture or image used when you encountered the issue.
-
-**Additional Context**
-Please provide the microscope settings when the picture was taken.
+* **Microscope Settings**:  the microscope settings when the picture was taken.
