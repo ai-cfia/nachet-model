@@ -2,7 +2,7 @@
 name: Model Misclassification
 about: Reporting instances where the model did not behave as expected.
 title: Model Misclassification
-labels: bug
+labels: model
 assignees: ''
 
 ---
