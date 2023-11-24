@@ -1,7 +1,7 @@
 ---
 name: Model Misclassification
 about: Reporting instances where the model did not behave as expected.
-title: Model Misclassification
+title: "[Type of Misclassification]: [Issue Description]"
 labels: model
 assignees: ''
 
