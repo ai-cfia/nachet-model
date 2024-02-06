@@ -11,4 +11,16 @@
         "metrics": [],
         "identifiable": []
     }
+    {
+        "endpoint_name":"swin-endpoint",
+        "model_name": "swinv1-base-dataaugv2-1",
+        "created_by": "Amir Ardalan Kalantari Dehaghi",
+        "creation_date": "2023-12-05",
+        "version": "1",
+        "description": "validate training", 
+        "job_name": "None",
+        "dataset": "",
+        "metrics": [],
+        "identifiable": []
+    }
 ]
