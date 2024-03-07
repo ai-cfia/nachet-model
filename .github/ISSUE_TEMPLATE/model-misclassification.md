@@ -2,8 +2,8 @@
 name: Model Misclassification
 about: Reporting instances where the model did not behave as expected.
 title: "[Type of Misclassification]: [Issue Description]"
-labels: model
-assignees: ''
+labels: ''
+assignees: amirardalan9473
 
 ---
 
