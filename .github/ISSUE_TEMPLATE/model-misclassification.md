@@ -2,7 +2,7 @@
 name: Model Misclassification
 about: Reporting instances where the model did not behave as expected.
 title: "[Type of Misclassification]: [Issue Description]"
-labels: ''
+labels: bug
 assignees: amirardalan9473
 
 ---
@@ -20,4 +20,3 @@ Describe what actually happened.
 To better understand the issue, please add screenshots:
 * **Results**: Include a screenshot of the interface showing the classification error or the issue as it appears in your environment.
 * **Source Image**: Attach the actual picture or image used when you encountered the issue.
-* **Microscope Settings**:  the microscope settings when the picture was taken.
