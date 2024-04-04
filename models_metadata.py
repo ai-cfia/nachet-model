@@ -1,9 +1,10 @@
 import os
 import re
 import json
+
 from dotenv import load_dotenv
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import Model
+from azure.ai.ml import MLClient # Input
+# from azure.ai.ml.entities import Model
 from azure.identity import DefaultAzureCredential
 from custom_exceptions import(
     ModelFilePathPatternError
@@ -16,14 +17,14 @@ NACHET_RESOURCE_GROUP = os.getenv("NACHET_RESOURCE_GROUP")
 NACHET_WORKSPACE = os.getenv("NACHET_WORKSPACE")
 
 ml_client = MLClient(
-    DefaultAzureCredential(), 
-    NACHET_SUBSCRIPTION_ID, 
+    DefaultAzureCredential(),
+    NACHET_SUBSCRIPTION_ID,
     NACHET_RESOURCE_GROUP, NACHET_WORKSPACE)
 
 def generate_model_endpoints_metadata(ml_client) -> list:
     """
     Retrieves deployed online endpoints and returns a list of dictionaries
-    containing their metadata 
+    containing their metadata
     """
 
     model_endpoints_metadata = []
@@ -38,7 +39,7 @@ def generate_model_endpoints_metadata(ml_client) -> list:
             'model_name': '',
             'created_by': '',
             'creation_date': '',
-            'version': '',  
+            'version': '',
             'description': '',
             'job_name': '',
             'dataset': '',
@@ -48,7 +49,7 @@ def generate_model_endpoints_metadata(ml_client) -> list:
 
         # Retrieve online_deployment
         deployment = ml_client.online_deployments.get(
-            endpoint_name=ep.name, 
+            endpoint_name=ep.name,
             name=list(ep.traffic.keys())[0])
 
         # Retrieve deployment's model (from filePath)
@@ -56,8 +57,8 @@ def generate_model_endpoints_metadata(ml_client) -> list:
         pattern = re.compile(r"models/([^/]+)/versions/(\d+)")
         match = pattern.search(model_filepath)
         if match:
-            model_name = match.group(1)  
-            model_version = match.group(2)  
+            model_name = match.group(1)
+            model_version = match.group(2)
         else:
             raise ModelFilePathPatternError("Error retrieving model name or version from filePath.")
 
@@ -75,8 +76,8 @@ def generate_model_endpoints_metadata(ml_client) -> list:
 
         model_endpoints_metadata.append(model_endpoint_metadata)
 
-    return model_endpoints_metadata 
-        
+    return model_endpoints_metadata
+
 if __name__ == "__main__":
     model_endpoints_metadata = generate_model_endpoints_metadata(ml_client)
     with open("model_endpoints_metadata.json", "w") as outfile:
