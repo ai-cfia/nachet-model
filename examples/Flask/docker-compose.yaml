@@ -1,0 +1,11 @@
+services:
+  flask-torch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c 'FLASK_APP=app.py flask run --host=0.0.0.0'
+    ports:
+      - "17500:5000"
+    env_file:
+      - .env
+      

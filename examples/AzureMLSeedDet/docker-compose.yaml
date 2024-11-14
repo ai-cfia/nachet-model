@@ -1,0 +1,14 @@
+services:
+  aml-seed-det:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # command: ["/bin/sh", "-c", "hypercorn -b :8080 app:app"]
+    command: ["/bin/bash"]
+    ports:
+      - "12380:8080"
+    env_file:
+      - .env
+    environment:
+      - PORT=8080
+    

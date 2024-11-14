@@ -1,5 +1,7 @@
-flask
+flask==3.0.3
 python-dotenv
-Transformers==4.35.9.dev0
+Transformers==4.36.0
 Datasets==2.14.5
-Tokenizers==0.14.1
+Tokenizers
+huggingface-hub==0.19.3
+pillow
