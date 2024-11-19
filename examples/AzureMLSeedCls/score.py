@@ -17,8 +17,8 @@ def init():
     # model_path = os.path.join(
     #     os.getenv("AZUREML_MODEL_DIR"),'checkpoint-1500'
     # )
-    print(os.listdir("/app/artifacts/"), "\n\n\n")
-    model_path = "/app/artifacts/SwinV1_Base_DataAugv2_"
+    # print(os.listdir("/app/artifacts/"), "\n\n\n")
+    model_path = "/app/artifacts/"
     # deserialize the model file back into a sklearn model
     # model = joblib.load(model_path)
     # model = SwinForImageClassification.from_pretrained(pth)
