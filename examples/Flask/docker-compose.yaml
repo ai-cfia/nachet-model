@@ -1,3 +1,4 @@
+---
 services:
   flask-torch:
     build:
@@ -8,4 +9,3 @@ services:
       - "17500:5000"
     env_file:
       - .env
-      

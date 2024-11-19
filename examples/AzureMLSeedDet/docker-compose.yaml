@@ -1,14 +1,18 @@
+---
 services:
   aml-seed-det:
     build:
       context: .
       dockerfile: Dockerfile
     # command: ["/bin/sh", "-c", "hypercorn -b :8080 app:app"]
-    command: ["/bin/bash"]
+    command: bash -c 'azmlinfsrv --entry_script /app/scoring_file_v_1_0_0.py'
     ports:
-      - "12380:8080"
+      - "12380:5001"
+      - "12381:8883"
+      - "12382:8888"
     env_file:
       - .env
     environment:
       - PORT=8080
-    
+    volumes:
+      - ../AzureMLSeedDet:/app
