@@ -1,4 +1,3 @@
-import os
 import logging
 from transformers import pipeline
 # import request
