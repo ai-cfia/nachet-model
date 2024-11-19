@@ -1,0 +1,309 @@
+---
+# Conda environment specification. The dependencies defined in this file will
+# be automatically provisioned for runs with userManagedDependencies=False.
+
+# Details about the Conda environment file format:
+# https://conda.io/docs/user-guide/tasks/manage-environments.html#create-env-file-manually
+
+name: project_environment
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.8 and later.
+- python=3.8.10
+
+- pip:
+  - adal==1.2.7
+  - anyio==4.2.0
+  - applicationinsights==0.11.10
+  - arch==5.3.1
+  - argcomplete==3.2.1
+  - asttokens==2.4.1
+  - attrs==23.1.0
+  - azure-common==1.1.28
+  - azure-core==1.29.6
+  - azure-graphrbac==0.61.1
+  - azure-identity==1.15.0
+  - azure-mgmt-authorization==4.0.0
+  - azure-mgmt-containerregistry==10.3.0
+  - azure-mgmt-core==1.4.0
+  - azure-mgmt-keyvault==10.3.0
+  - azure-mgmt-network==25.1.0
+  - azure-mgmt-resource==23.0.1
+  - azure-mgmt-storage==21.1.0
+  - azure-storage-blob==12.19.0
+  - azure-storage-queue==12.9.0
+  - azureml-automl-core==1.54.0
+  - azureml-automl-dnn-vision==1.54.0.post1
+  - azureml-automl-runtime==1.54.0
+  - azureml-core==1.54.0.post1
+  - azureml-dataprep==4.12.8
+  - azureml-dataprep-native==38.0.0
+  - azureml-dataprep-rslex==2.19.6
+  - azureml-dataset-runtime==1.54.0.post1
+  - azureml-defaults==1.54.0
+  - azureml-inference-server-http==0.8.4.2
+  - azureml-interpret==1.54.0
+  - azureml-mlflow==1.54.0.post1
+  - azureml-responsibleai==1.54.0
+  - azureml-telemetry==1.54.0
+  - azureml-train-automl-client==1.54.0.post1
+  - azureml-train-automl-runtime==1.54.0.post1
+  - azureml-train-core==1.54.0
+  - azureml-train-restclients-hyperdrive==1.54.0
+  - azureml-training-tabular==1.54.0
+  - backcall==0.2.0
+  - backports-tempfile==1.0
+  - backports-weakref==1.0.post1
+  - bcrypt==4.1.2
+  - bokeh==2.4.3
+  - boto==2.49.0
+  - cachetools==5.3.2
+  - captum==0.5.0
+  - cffi==1.16.0
+  - colorcet==3.0.1
+  - coloredlogs==15.0.1
+  - contextlib2==21.6.0
+  - cryptography==41.0.7
+  - dask==2023.2.0
+  - databricks-cli==0.18.0
+  - dataclasses==0.6
+  - debugpy==1.8.0
+  - decorator==5.1.1
+  - dice-ml==0.9
+  - dill==0.3.7
+  - distributed==2023.2.0
+  - distro==1.8.0
+  - docker==6.1.3
+  - dotnetcore2==3.1.23
+  - econml==0.14.1
+  - entrypoints==0.4
+  - erroranalysis==0.5.2
+  - exceptiongroup==1.2.0
+  - executing==2.0.1
+  - fairlearn==0.7.0
+  - fire==0.5.0
+  - flask==2.2.5
+  - flask-cors==3.0.10
+  - flatbuffers==23.5.26
+  - fsspec==2023.12.2
+  - fusepy==3.0.1
+  - fvcore==0.1.5.post20221221
+  - gensim==3.8.3
+  - gitdb==4.0.11
+  - gitpython==3.1.40
+  - google-api-core==2.15.0
+  - google-auth==2.25.2
+  - googleapis-common-protos==1.62.0
+  - gunicorn==20.1.0
+  - h5py==3.10.0
+  - humanfriendly==10.0
+  - imageio==2.33.1
+  - importlib-metadata==7.0.0
+  - inference-schema==1.7
+  - interpret-community==0.30.0
+  - interpret-core==0.4.3
+  - iopath==0.1.10
+  - ipykernel==6.8.0
+  - ipython==8.12.3
+  - isodate==0.6.1
+  - itsdangerous==2.1.2
+  - jedi==0.19.1
+  - jeepney==0.8.0
+  - jinja2==3.1.2
+  - jmespath==0.10.0
+  - jsonpickle==3.0.2
+  - jsonschema==4.20.0
+  - jsonschema-specifications==2023.11.2
+  - jupyter-client==7.4.9
+  - jupyter-core==5.5.1
+  - keras2onnx==1.6.0
+  - knack==0.11.0
+  - lightgbm==3.2.1
+  - locket==1.0.0
+  - markupsafe==2.1.2
+  - matplotlib==3.6.3
+  - matplotlib-inline==0.1.6
+  - ml-wrappers==0.5.3
+  - mlflow-skinny==2.9.2
+  - mpmath==1.3.0
+  - msal==1.26.0
+  - msal-extensions==1.0.0
+  - msgpack==1.0.7
+  - msrest==0.7.1
+  - msrestazure==0.6.4
+  - munch==4.0.0
+  - ndg-httpsclient==0.5.1
+  - nest-asyncio==1.5.8
+  - networkx==2.5
+  - nose==1.3.7
+  - numba==0.53.1
+  - nvidia-cublas-cu11==11.10.3.66
+  - nvidia-cuda-nvrtc-cu11==11.7.99
+  - nvidia-cuda-runtime-cu11==11.7.99
+  - nvidia-cudnn-cu11==8.5.0.96
+  - oauthlib==3.2.2
+  - onnx==1.14.1
+  - onnxconverter-common==1.13.0
+  - onnxmltools==1.11.2
+  - onnxruntime==1.14.1
+  - opencensus==0.11.3
+  - opencensus-context==0.1.3
+  - opencensus-ext-azure==1.1.12
+  - opencv-python-headless==4.3.0.38
+  - param==2.0.1
+  - paramiko==3.4.0
+  - parso==0.8.3
+  - partd==1.4.1
+  - pathspec==0.12.1
+  - patsy==0.5.4
+  - pexpect==4.9.0
+  - pickleshare==0.7.5
+  - pillow==10.0.1
+  - pkginfo==1.9.6
+  - pkgutil-resolve-name==1.3.10
+  - pmdarima==1.8.5
+  - portalocker==2.8.2
+  - pretrainedmodels==0.7.4
+  - prompt-toolkit==3.0.43
+  - property-cached==1.6.4
+  - protobuf==3.20.3
+  - ptyprocess==0.7.0
+  - pure-eval==0.2.2
+  - pyarrow==11.0.0
+  - pyarrow-hotfix==0.6
+  - pyasn1==0.5.1
+  - pyasn1-modules==0.3.0
+  - pycparser==2.21
+  - pyct==0.5.0
+  - pydantic==1.10.13
+  - pygments==2.17.2
+  - pyjwt==2.8.0
+  - pynacl==1.5.0
+  - pynvml==8.0.4
+  - pyopenssl==23.3.0
+  - pytorch-ignite==0.4.13
+  - pywavelets==1.4.1
+  - pyyaml==6.0.1
+  - pyzmq==25.1.2
+  - raiutils==0.4.1
+  - referencing==0.32.0
+  - requests-oauthlib==1.3.1
+  - resnest==0.0.6b20210504
+  - responsibleai==0.28.0
+  - rpds-py==0.15.2
+  - rsa==4.9
+  - s3transfer==0.5.2
+  - saliency==0.1.3
+  - scikit-image==0.19.3
+  - secretstorage==3.3.3
+  - semver==2.13.0
+  - simplification==0.5.7
+  - skl2onnx==1.14.1
+  - sklearn-pandas==1.7.0
+  - smart-open==1.9.0
+  - smmap==5.0.1
+  - sniffio==1.3.0
+  - sortedcontainers==2.4.0
+  - sparse==0.14.0
+  - sqlparse==0.4.4
+  - stack-data==0.6.3
+  - statsmodels==0.13.5
+  - sympy==1.12
+  - tabulate==0.9.0
+  - tbb==2020.3.254
+  - tblib==3.0.0
+  - termcolor==2.4.0
+  - tifffile==2023.7.10
+  - timm==0.4.12
+  - toolz==0.12.0
+  - torch==1.13.1
+  - torchvision==0.14.1
+  - tornado==6.4
+  - traitlets==5.14.0
+  - typing-extensions==4.9.0
+  - urllib3==1.26.18
+  - wcwidth==0.2.12
+  - websocket-client==1.7.0
+  - werkzeug==3.0.1
+  - wrapt==1.12.1
+  - yacs==0.1.8
+  - zict==3.0.0
+- boto3=1.20.19
+- botocore=1.23.19
+- brotli=1.1.0
+- brotli-bin=1.1.0
+- brotli-python=1.1.0
+- ca-certificates=2023.11.17
+- certifi=2023.11.17
+- charset-normalizer=3.3.2
+- cloudpickle=2.2.1
+- colorama=0.4.6
+- contourpy=1.1.1
+- cycler=0.12.1
+- cython=3.0.6
+- fonttools=4.47.0
+- freetype=2.12.1
+- idna=3.6
+- importlib-resources=6.1.1
+- importlib_resources=6.1.1
+- joblib=1.2.0
+- kiwisolver=1.4.5
+- lcms2=2.16
+- lerc=4.0.0
+- libblas=3.9.0
+- libbrotlicommon=1.1.0
+- libbrotlidec=1.1.0
+- libbrotlienc=1.1.0
+- libcblas=3.9.0
+- libdeflate=1.19
+- libffi=3.3
+- libgfortran-ng=13.2.0
+- libgfortran5=13.2.0
+- libjpeg-turbo=3.0.0
+- liblapack=3.9.0
+- libllvm10=10.0.1
+- libopenblas=0.3.25
+- libpng=1.6.39
+- libsqlite=3.44.2
+- libtiff=4.6.0
+- libwebp-base=1.3.2
+- libxcb=1.15
+- libzlib=1.2.13
+- llvmlite=0.36.0
+- munkres=1.1.4
+- numpy=1.22.4
+- openjpeg=2.5.0
+- packaging=23.2
+- pandas=1.3.5
+- pip=21.3.1
+- platformdirs=4.1.0
+- pooch=1.8.0
+- psutil=5.8.0
+- pthread-stubs=0.4
+- pycocotools=2.0.6
+- pyparsing=3.1.1
+- pysocks=1.7.1
+- python-dateutil=2.8.2
+- python-tzdata=2023.3
+- python_abi=3.8
+- pytz=2023.3.post1
+- recordclass=0.14.3
+- requests=2.31.0
+- scikit-learn=1.0.2
+- scipy=1.10.1
+- setuptools=65.5.1
+- six=1.16.0
+- slicer=0.0.7
+- threadpoolctl=3.2.0
+- tqdm=4.66.1
+- unicodedata2=15.1.0
+- wheel=0.38.1
+- xorg-libxau=1.0.11
+- xorg-libxdmcp=1.1.3
+- zipp=3.17.0
+- zstd=1.5.5
+channels:
+- anaconda
+- conda-forge
+- cerebis
+- pytorch
