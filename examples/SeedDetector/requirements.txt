@@ -1,0 +1,5 @@
+flask
+python-dotenv
+Transformers==4.35.9.dev0
+Datasets==2.14.5
+Tokenizers==0.14.1

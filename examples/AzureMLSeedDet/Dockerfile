@@ -1,0 +1,1 @@
+http://mcr.microsoft.com/azureml/curated/azureml-automl-dnn-vision-gpu:131
