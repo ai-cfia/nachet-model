@@ -1,8 +1,6 @@
 FROM mcr.microsoft.com/aifx/acpt/stable-ubuntu2004-cu117-py38-torch1131:biweekly.202311.2
 
-# Install pip dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt --no-cache-dir
+WORKDIR /app
 
 # Inference requirements
 COPY --from=mcr.microsoft.com/azureml/o16n-base/python-assets:20230419.v1 /artifacts /var/
@@ -12,9 +10,23 @@ RUN /var/requirements/install_system_requirements.sh && \
    ln -sf /etc/nginx/sites-available/app /etc/nginx/sites-enabled/app && \
    rm -f /etc/nginx/sites-enabled/default
 ENV SVDIR=/var/runit
+
 ENV WORKER_TIMEOUT=400
-EXPOSE 5001 8883 8888
+
+ENV AZUREML_MODEL_DIR=/app/artifacts
+
+# Install pip dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt --no-cache-dir
+COPY score.py .
+COPY startup.sh .
+COPY artifacts /app/artifacts
+
+RUN chown -R 1000:1000 /app
+RUN chmod +x /app/startup.sh
+
+EXPOSE 5001
 
 # support Deepspeed launcher requirement of passwordless ssh login
-RUN apt-get update
-RUN apt-get install -y openssh-server openssh-client
+# RUN apt-get update
+# RUN apt-get install -y openssh-server openssh-client
