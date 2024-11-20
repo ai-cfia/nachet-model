@@ -5,7 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     # command: ["/bin/sh", "-c", "hypercorn -b :8080 app:app"]
-    command: bash -c 'azmlinfsrv --entry_script /app/scoring_file_v_1_0_0.py'
+    command: bash -c './startup.sh'
+    user: 1000:1000
     ports:
       - "12380:5001"
       - "12381:8883"
@@ -14,5 +15,6 @@ services:
       - .env
     environment:
       - PORT=8080
-    volumes:
-      - ../AzureMLSeedDet:/app
+      - AZUREML_MODEL_DIR=/app/artifacts
+    # volumes:
+    #   - ../AzureMLSeedDet:/app
