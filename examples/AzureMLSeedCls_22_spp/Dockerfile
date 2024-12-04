@@ -1,5 +1,9 @@
 FROM mcr.microsoft.com/aifx/acpt/stable-ubuntu2004-cu117-py38-torch1131:biweekly.202311.2
 
+COPY ./artifacts /app/
+COPY ./score.py /app/
+ENV AZUREML_MODEL_DIR=/app/artifacts
+
 # Install pip dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt --no-cache-dir
