@@ -1,0 +1,19 @@
+---
+services:
+  aml-seed-cls:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # command: ["/bin/sh", "-c", "hypercorn -b :8080 app:app"]
+    command: bash -c 'azmlinfsrv --entry_script /app/score.py'
+    ports:
+      - "12390:5001"
+      - "12391:8883"
+      - "12392:8888"
+    env_file:
+      - .env
+    environment:
+      - PORT=8080
+      - AZUREML_MODEL_DIR=/app/artifacts
+    volumes:
+      - ../AzureMLSeedCls:/app
